@@ -1,0 +1,33 @@
+<html>
+  prototype constructor inheritance
+  <head></head>
+  <body>
+    <script text="text/script">
+      function Person() {
+        this.name = "nancy";
+      }
+      Person.prototype.run = function () {
+        console.log("nancy name");
+      };
+
+      function Student() {
+        this.address = "juxian";
+      }
+      var p = new Person();
+      Student.prototype = p;
+      // Student.prototype.constructor = Student;
+      p.constructor = Student;
+
+      var stu1 = new Student();
+      stu1.name = "hehe";
+      var stu2 = new Student();
+      p.run();
+      console.log(stu1);
+      console.log(stu2);
+      stu2.run();
+      console.log(Student.prototype.constructor.name);
+      console.log(p.__proto__.constructor.name);
+      console.log(Student.constructor.name);
+    </script>
+  </body>
+</html>
